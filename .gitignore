@@ -4,3 +4,6 @@ __pycache__/
 # Ignore secrets
 .env
 client_secret.json
+gcreds.json
+
+.vercel

@@ -1,3 +1,5 @@
+import os
+import json
 from flask import (
     Flask,
     request,
@@ -10,8 +12,11 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
+creds = json.loads(os.environ['GOOGLE_CREDS'])
+with open('gcreds.json', 'w') as f:
+    json.dump(creds, f)
 creds = ServiceAccountCredentials.from_json_keyfile_name(
-    'client_secret.json', scope)
+    'gcreds.json', scope)
 client = gspread.authorize(creds)
 
 sheet = client.open("Regnskap")
