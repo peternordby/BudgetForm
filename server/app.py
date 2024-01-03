@@ -1,10 +1,7 @@
-import os
 import json
-from flask import (
-    Flask,
-    request,
-    make_response,
-)
+import os
+
+from flask import Flask, make_response, request
 
 app = Flask(__name__)
 
@@ -27,9 +24,16 @@ worksheet = sheet.worksheet("Utgifter 2024")
 def index():
     return 'Submit post requests to /addRow'
 
-@app.route('/addRow', methods=['POST'])
+@app.route('/addRow', methods=['POST', 'OPTIONS'])
 def add():
     data = request.get_json()
+
+    if request.method == 'OPTIONS':
+        response = make_response("Success", 200)
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        response.headers.add('Access-Control-Allow-Headers', '*')
+        response.headers.add('Access-Control-Allow-Methods', '*')
+        return response
 
     password = data['password'] if 'password' in data else None
     if password != os.environ.get('PASSWORD'):
@@ -37,4 +41,8 @@ def add():
     
     new_row = [data['date'], data['date'], data['amount'], data['description'], data['category']]
     worksheet.append_row(new_row, value_input_option='USER_ENTERED')
-    return make_response("Success", 200)
+    response = make_response("Success", 200)
+    response.headers.add('Access-Control-Allow-Origin', '*')
+    response.headers.add('Access-Control-Allow-Headers', '*')
+    response.headers.add('Access-Control-Allow-Methods', '*')
+    return response
