@@ -1,4 +1,6 @@
-document.getElementById('date').valueAsDate = new Date();
+const setToCurrentDate = () => {
+    document.getElementById('date').valueAsDate = new Date();
+}
 
 window.addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -17,8 +19,12 @@ window.addEventListener('submit', async (event) => {
             'Content-Type': 'application/json'
         }
     })
-    const result = await response.json()
-    console.log("result:", result)
+    const result = await response
+    if (result.status === 200) {
+        alert("Det ble lagt til i regnskapet!")
+    }
     form.reset()
-    form.elements[0].focus()
+    setToCurrentDate()
 })
+
+setToCurrentDate()

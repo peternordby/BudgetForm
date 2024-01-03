@@ -1,0 +1,97 @@
+:root {
+  --gap: 1rem;
+  --gap-half: 0.5rem;
+  --gap-double: 2rem;
+  --color-bg: #EBECF0;
+  --color-shadow: #BABECC;
+  --color-white: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin-top: 15vh;
+}
+
+body, html {
+  background-color: var(--color-bg);
+}
+
+body, p, input, select, button {
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -0.2px;
+  font-size: var(--gap);
+}
+
+div, p {
+  color: var(--color-shadow);
+  text-shadow: 1px 1px 1px var(--color-white);
+}
+
+form {
+  padding: var(--gap);
+  width: calc(var(--gap)*20);
+  margin: 0 auto;
+}
+
+button, input, select {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  font-size: var(--gap);
+  border-radius: calc(var(--gap)*20);
+  padding: var(--gap);
+  background-color: var(--color-bg);
+  text-shadow: 1px 1px 0 var(--color-white);
+}
+
+label {
+  display: block;
+  margin-bottom: calc(var(--gap)*1.5);
+}
+
+input {
+  margin-right: calc(var(--gap)/2);
+  box-shadow:  inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+select {
+  box-shadow: inset 2px 2px 5px var(--color-shadow), inset -5px -5px 10px var(--color-white);
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input:focus {
+  box-shadow:  inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+
+select:focus {
+  box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}
+
+button {
+  color:#61677C;
+  font-weight: bold;
+  box-shadow: -5px -5px 20px var(--color-white),  5px 5px 20px var(--color-shadow);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  font-weight: 600;
+}
+  
+button:hover {
+  box-shadow: -2px -2px 5px var(--color-white), 2px 2px 5px var(--color-shadow);
+}
+  
+button:active {
+  box-shadow: inset 1px 1px 2px var(--color-shadow), inset -1px -1px 2px var(--color-white);
+}

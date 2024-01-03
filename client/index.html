@@ -5,30 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
     <title>BudgetForm</title>
 </head>
 
 <body>
     <form method="POST" name="budgetPost" action="https://server-wine-eta.vercel.app/addRow">
-        <input type="date" name="date" id="date">
-        <input type="text" name="amount" id="amount" pattern="[0-9]+" placeholder="Pris">
-        <input type="text" name="description" id="description" placeholder="Vare">
-        <select name="category" id="category">
-            <option value="Boutgifter">Boutgifter</option>
-            <option value="Abonnementer">Abonnementer</option>
-            <option value="Underholdning">Underholdning</option>
-            <option value="Spise ute">Spise ute</option>
-            <option value="Dagligvarer">Dagligvarer</option>
-            <option value="Helse">Helse</option>
-            <option value="Diverse">Diverse</option>
-            <option value="Shopping">Shopping</option>
-            <option value="Transport">Transport</option>
-            <option value="Reise">Reise</option>
-            <option value="Alkohol">Alkohol</option>
-            <option value="Gaver">Gaver</option>
-        </select>
-        <input type="password" name="password" id="password" autocomplete="current-password">
-        <input type="submit" name="submit" value="Submit">
+        <label>
+            <input type="date" name="date" id="date">
+        </label>
+        <label>
+            <input type="text" name="amount" id="amount" pattern="[0-9]+" placeholder="Pris">
+        </label>
+        <label>
+            <input type="text" name="description" id="description" placeholder="Vare">
+        </label>
+        <label>
+            <select name="category" id="category">
+                <option value="Boutgifter">Boutgifter</option>
+                <option value="Abonnementer">Abonnementer</option>
+                <option value="Underholdning">Underholdning</option>
+                <option value="Spise ute">Spise ute</option>
+                <option value="Dagligvarer">Dagligvarer</option>
+                <option value="Helse">Helse</option>
+                <option value="Diverse">Diverse</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Transport">Transport</option>
+                <option value="Reise">Reise</option>
+                <option value="Alkohol">Alkohol</option>
+                <option value="Gaver">Gaver</option>
+            </select>
+        </label>
+        <label>
+            <input type="password" name="password" id="password" autocomplete="current-password">
+        </label>
+        <button type="submit">Send inn</button>
     </form>
 </body>
 
