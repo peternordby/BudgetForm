@@ -41,13 +41,12 @@ window.addEventListener('submit', async (event) => {
         if (result.status === 200) {
             alert("Det ble lagt til i regnskapet!")
         }
-        form.reset()
+        event.target.reset()
         setToCurrentDate()
     }
     catch (error) {
         console.error('Error:', error)
         localStorage.removeItem('password')
-        setPassword()
     }
 })
 
