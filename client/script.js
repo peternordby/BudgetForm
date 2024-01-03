@@ -14,6 +14,17 @@ const setPassword = () => {
     localStorage.setItem('password', password)
 }
 
+const COLORS = {
+    DEFAULT: '#BABECC',
+    SUCCESS: '#169123',
+    ERROR: '#911616'
+}
+
+const setBackgroundColor = (color) => {
+    const root = document.querySelector(':root')
+    root.style.setProperty('--color-shadow', color)
+}
+
 
 window.addEventListener('submit', async (event) => {
     event.preventDefault()
@@ -22,8 +33,9 @@ window.addEventListener('submit', async (event) => {
     let password = localStorage.getItem('password')
 
     // If password is not set, ask for it
-    if (!password) {
+    while (password === null) {
         setPassword()
+        password = localStorage.getItem('password')
     }
 
     const json = generateJSON(event.target, password)
@@ -39,14 +51,19 @@ window.addEventListener('submit', async (event) => {
         })
         const result = await response
         if (result.status === 200) {
-            alert("Det ble lagt til i regnskapet!")
+            setBackgroundColor(COLORS.SUCCESS)
         }
-        event.target.reset()
-        setToCurrentDate()
+        setTimeout(() => {
+            setBackgroundColor(COLORS.DEFAULT)
+            event.target.reset()
+            setToCurrentDate()
+        }, 1000)
     }
     catch (error) {
         console.error('Error:', error)
+        setBackgroundColor(COLORS.ERROR)
         localStorage.removeItem('password')
+        setTimeout(() => setBackgroundColor(COLORS.DEFAULT), 1000)
     }
 })
 
