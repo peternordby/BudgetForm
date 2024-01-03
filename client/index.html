@@ -6,38 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
     <title>BudgetForm</title>
 </head>
 
 <body>
-    <form method="POST" name="budgetPost" action="https://server-wine-eta.vercel.app/addRow">
+    <form name="budgetPost">
         <label>
             <input type="date" name="date" id="date">
         </label>
         <label>
-            <input type="text" name="amount" id="amount" pattern="[0-9]+" placeholder="Pris">
+            <input type="text" name="amount" id="amount" pattern="\d*" placeholder="Pris">
         </label>
         <label>
             <input type="text" name="description" id="description" placeholder="Vare">
         </label>
         <label>
             <select name="category" id="category">
+                <option value="Dagligvarer">Dagligvarer</option>
+                <option value="Alkohol">Alkohol</option>
                 <option value="Boutgifter">Boutgifter</option>
                 <option value="Abonnementer">Abonnementer</option>
                 <option value="Underholdning">Underholdning</option>
                 <option value="Spise ute">Spise ute</option>
-                <option value="Dagligvarer">Dagligvarer</option>
                 <option value="Helse">Helse</option>
                 <option value="Diverse">Diverse</option>
                 <option value="Shopping">Shopping</option>
                 <option value="Transport">Transport</option>
                 <option value="Reise">Reise</option>
-                <option value="Alkohol">Alkohol</option>
                 <option value="Gaver">Gaver</option>
             </select>
-        </label>
-        <label>
-            <input type="password" name="password" id="password" autocomplete="current-password">
         </label>
         <button type="submit">Send inn</button>
     </form>
