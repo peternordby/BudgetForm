@@ -29,6 +29,15 @@ const setBackgroundColor = (color) => {
 window.addEventListener('submit', async (event) => {
     event.preventDefault()
 
+    const submitButton = document.getElementById('submit')
+    const submitText = document.getElementById('submit-text')
+    const spinner = document.getElementById('spinner')
+
+    submitButton.disabled = true
+    submitText.style.display = 'none'
+    spinner.style.display = 'block'
+
+
     // Retrieve password from local storage
     let password = localStorage.getItem('password')
 
@@ -40,6 +49,7 @@ window.addEventListener('submit', async (event) => {
 
     const json = generateJSON(event.target, password)
     const url = 'https://server-wine-eta.vercel.app/addRow'
+
 
     try {
         const response = await fetch(url, {
@@ -64,6 +74,11 @@ window.addEventListener('submit', async (event) => {
         setBackgroundColor(COLORS.ERROR)
         localStorage.removeItem('password')
         setTimeout(() => setBackgroundColor(COLORS.DEFAULT), 1000)
+    }
+    finally {
+        submitButton.disabled = false
+        submitText.style.display = 'block'
+        spinner.style.display = 'none'
     }
 })
 

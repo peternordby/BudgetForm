@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
@@ -41,7 +42,9 @@
                 <option value="Inntekter">Inntekter</option>
             </select>
         </label>
-        <button type="submit">Send inn</button>
+        <button id="submit" type="submit">
+            <i id="spinner" class="fa fa-spinner fa-spin"></i><span id="submit-text">Send inn</span>
+        </button>
     </form>
 </body>
 
