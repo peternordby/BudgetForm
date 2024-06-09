@@ -40,7 +40,7 @@ def add():
 
     worksheet = sheet.worksheet("Utgifter 2024")
     
-    new_row = [data['date'], data['date'], data['amount'], data['description'], data['category']]
+    new_row = [data['date'], data['date'], data['amount'], data['description'], data['category'], data['tag']]
     worksheet.append_row(new_row, value_input_option='USER_ENTERED')
     response = make_response("Success", 200)
     response.headers.add('Access-Control-Allow-Origin', '*')
