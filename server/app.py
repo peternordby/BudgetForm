@@ -38,7 +38,7 @@ def add():
 
     sheet = client.open("Regnskap")
 
-    worksheet = sheet.worksheet("Utgifter 2024")
+    worksheet = sheet.worksheet("Utgifter")
     
     new_row = [data['date'], data['date'], data['amount'], data['description'], data['category'], data['tag']]
     worksheet.append_row(new_row, value_input_option='USER_ENTERED')
